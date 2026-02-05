@@ -1,0 +1,121 @@
+# HerbstPhoto v4 for Flux 2
+
+> Analog film aesthetic LoRA. Trained on original photography. Ethically sourced.
+
+[![Download on Patreon](https://img.shields.io/badge/Download-Patreon-FF424D?style=flat-square&logo=patreon)](https://www.patreon.com/posts/herbstphoto-v4-2-145298480)
+
+---
+
+## Overview
+
+HerbstPhoto_v4_Flux2 is a LoRA model that introduces authentic analog film characteristics to Flux 2 Dev outputs. Trained exclusively on analog photography I own the rights to—no scraped data, no unlicensed material.
+
+**What it does:**
+- Filmic softness and natural grain behavior across exposure levels
+- Emulsion bloom & halation
+- Optical artifacts: lens flares, light leaks, chromatic aberration, barrel distortion
+- Aggressive low-latitude contrast: clipped highlights, crushed shadows
+
+The result: images that feel shot, not generated.
+
+---
+
+## Quick Start
+
+### Download
+[Free on Patreon →](https://www.patreon.com/posts/herbstphoto-v4-2-145298480)
+
+### ComfyUI
+A pre-built workflow and tutorial is available for those new to LoRA usage:  
+[ComfyUI Template →](https://lnkd.in/eNvb7m2P)
+
+---
+
+## Usage
+
+### Trigger Word
+```
+HerbstPhoto
+```
+Include this in your prompt.
+
+### LoRA Strength
+| Value | Effect |
+|-------|--------|
+| `0.4 - 0.75` | Balanced aesthetic, good prompt adherence |
+| `0.73` | **Sweet spot** |
+| `0.8 - 1.0` | Max texture/degradation, reduced prompt adherence |
+
+### Resolution
+- Recommended: `2048x1152` (16:9) or `2488x2048`
+- Works well up to 2K at various aspect ratios
+
+### Samplers & Schedulers
+
+Tested extensively. These combinations work best:
+
+```python
+# Recommended combinations (sampler + scheduler)
+SAMPLER_CONFIGS = [
+    ("dpmpp_2s_a", "sgm_uniform"),    # Top pick
+    ("er_sde", "ddim_uniform"),
+    ("dpmpp_sde", "simple"),
+    ("dpmpp_3m_sde_gpu", "simple"),
+    ("ipndm", "simple"),
+    ("dpmpp_sde", "ddim_uni"),
+]
+```
+
+### Prompting Tips
+
+Flux 2's `mistral_3_small_fp8` text encoder handles long, complex prompts—but this LoRA produces dramatic effects with simple, natural language. You don't need style, texture, or lighting tokens.
+
+```python
+# Simple prompt example
+prompt = "HerbstPhoto, portrait of a woman in golden hour light"
+
+# Also works, but not required
+prompt = "HerbstPhoto, portrait of a woman, warm afternoon light, shallow depth of field"
+```
+
+---
+
+## Training Details
+
+| Parameter | Value |
+|-----------|-------|
+| Base Model | Flux 2 Dev (Black Forest Labs) |
+| Framework | AI Toolkit (Ostris, LLC) |
+| Hardware | H200 GPU cluster (Runpod) |
+| Training Runs | 100+ |
+| Methodology | Single parameter changes per run for clean A/B testing |
+| Dataset | Original analog photography (full rights ownership) |
+
+---
+
+## Ethical Training
+
+This model is trained **exclusively** on photographs I created and own. 
+
+I believe we can take control of AI's potential by training on our own material—and that we can build accessible tools that empower individuals, not just corporations.
+
+
+---
+
+## Links
+
+- **Model Download:** [Patreon (Free)](https://www.patreon.com/posts/herbstphoto-v4-2-145298480)
+- **ComfyUI Workflow:** [Template + Tutorial](https://lnkd.in/eNvb7m2P)
+
+---
+
+## Author
+
+**Calvin Herbst** — Filmmaker & Creative Technologist  
+
+
+---
+
+## License
+
+See Patreon page for license terms.
